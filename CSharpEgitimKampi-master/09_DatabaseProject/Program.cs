@@ -27,34 +27,38 @@ namespace _09_DatabaseProject
             Console.Write("Lütfen getirmek istediğiniz tablo numarasını giriniz: ");
             tableNumber = Console.ReadLine();
             Console.WriteLine("-----------------------------------");
-
-            // SqlConnection ile veritabanina baglama islemi
-            SqlConnection connection = new SqlConnection("Data Source=DORUKDUMAN;Initial Catalog=DB_EgitimCampi;Integrated Security=True");
-            connection.Open(); // Baglantiyi ac
-
-            // SqlCommand ile baglanilan veritabanina sql sorgusu yazarak istenilen veriyi cekme islemi
-            SqlCommand command = new SqlCommand("SELECT * FROM Tbl_Categories", connection); // SQL sorgusu
-
-            // SqlDataAdapter keywordu ile RAM'de DataTable olusturarak istenilen SQL query sonucunu doldurma islemi
-            SqlDataAdapter adapter = new SqlDataAdapter(command); // Veriyi almak icin adapter kullan
-            DataTable dataTable = new DataTable(); // RAM'de bir DataTable olustur
-            adapter.Fill(dataTable); // Adapter ile DataTable'i doldur
-            connection.Close(); // Baglantiyi kapat
-
-            // Dongu kullanarak DataTable'daki satirlari gezinme
-            foreach (DataRow row in dataTable.Rows)
             {
-                // İc ice dongu ile de DataTable'daki sutunlardaki istenilen verileri getirme
-                foreach (var item in row.ItemArray)
+                string connectionString = ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    Console.WriteLine(item.ToString()); // Her bir ogeyi yazdır
-                }
-                Console.WriteLine(); // Satir sonu
-            }
 
-            Console.Read();
+                    // SqlConnection ile veritabanina baglama islemi
+                    //SqlConnection connection = new SqlConnection("Data Source=yourdatasource;Initial Catalog=DB_EgitimCampi;Integrated Security=True");
+                    connection.Open(); // Baglantiyi ac
+
+                    // SqlCommand ile baglanilan veritabanina sql sorgusu yazarak istenilen veriyi cekme islemi
+                    SqlCommand command = new SqlCommand("SELECT * FROM Tbl_Categories", connection); // SQL sorgusu
+                    // SqlDataAdapter keywordu ile RAM'de DataTable olusturarak istenilen SQL query sonucunu doldurma islemi
+                    SqlDataAdapter adapter = new SqlDataAdapter(command); // Veriyi almak icin adapter kullan
+                    DataTable dataTable = new DataTable(); // RAM'de bir DataTable olustur
+                    adapter.Fill(dataTable); // Adapter ile DataTable'i doldur
+                    connection.Close(); // Baglantiyi kapat
+
+                    // Dongu kullanarak DataTable'daki satirlari gezinme
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        // İc ice dongu ile de DataTable'daki sutunlardaki istenilen verileri getirme
+                        foreach (var item in row.ItemArray)
+                        {
+                            Console.WriteLine(item.ToString()); // Her bir ogeyi yazdır
+                        }
+                        Console.WriteLine(); // Satir sonu
+                    }
+                }
+
+                Console.Read();
+            }
         }
     }
-}
 
 
