@@ -25,4 +25,7 @@ Bu projede, foreach döngüsünü derinlemesine inceleyip bir sınav sistemi sim
 🔄 Proje 8: Geriye Değer Döndüren Fonksiyonlar
 Son projede, geriye değer döndüren metotlar ile çalıştım. Kullanıcıdan aldığım verileri işleyip sonuçları döndüren fonksiyonlar yazdım. Bu proje ile daha karmaşık işlemleri öğrenmiş oldum.
 
-Bu projeler sayesinde C# diline dair temel kavramları uygulamalı olarak öğrenme fırsatı buldum ve bu bilgileri ilerleyen projelerde daha da geliştireceğim.
+📄 Proje 9-10: SQL Veri Tabanı ve Tablo Oluşturma & C# Kısmına Bağlama
+Bu projede T-SQL kullanarak bir veri tabanı ve tablo oluşturdum. Oluşturduğum tabloyu C# anahtar kelimeleri kullanarak bir konsol uygulaması (.NET Framework) ile bağladım. Bu proje kapsamında temel CRUD işlemlerini uyguladım ve SQL tabanında eklemiş olduğum verileri C# konsolu ile görüp işledim.
+
+🏁Eğitim Kampı sürecindeki 101 ve 201 bölümleri 10. proje ile sonlanmıştır. Bundan sonraki 301 serili projeler, ayrı bir repository oluşturularak devam etmektedir.⏩
